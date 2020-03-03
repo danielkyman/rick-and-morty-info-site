@@ -14,11 +14,13 @@ import CharactersPage from "./pages/Character/CharactersPage";
 import LocationsPage from "./pages/Location/LocationsPage";
 import EpisodesPage from "./pages/Episode/EpisodesPage";
 import Random from "./pages/Randomizer/Random";
+import NavBar from "./components/Navbar/NavBar";
 
 function App() {
   return (
     <Provider store={store}>
       <Router>
+        <NavBar />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/characters" component={CharactersPage} />
