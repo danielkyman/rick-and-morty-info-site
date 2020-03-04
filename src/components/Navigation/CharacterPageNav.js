@@ -1,7 +1,7 @@
 import React from "react";
 import "./PageNav.scss";
 
-const PageNav = ({ count, jumpToPage, page }) => {
+const CharacterPageNav = ({ count, jumpToPage, page }) => {
   let countArr = [];
   for (let i = 1; i <= count; i++) {
     countArr.push(i);
@@ -23,4 +23,4 @@ const PageNav = ({ count, jumpToPage, page }) => {
   );
 };
 
-export default PageNav;
+export default CharacterPageNav;

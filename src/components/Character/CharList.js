@@ -8,7 +8,7 @@ import {
   jumpToPage
 } from "../../redux/actions/character";
 
-import PageNav from "../../components/Navigation/PageNav";
+import CharacterPageNav from "../../components/Navigation/CharacterPageNav";
 import CharCard from "../../components/Character/CharCard";
 
 const CharList = ({
@@ -16,14 +16,14 @@ const CharList = ({
   loading,
   characters,
   count,
-  page,
+  characterpage,
   prevPage,
   nextPage,
   jumpToPage
 }) => {
   useEffect(() => {
-    getCharacters(page);
-  }, [page]);
+    getCharacters(characterpage);
+  }, [characterpage]);
 
   if (loading) {
     return <h3>Loading Cards...</h3>;
@@ -31,9 +31,13 @@ const CharList = ({
 
   return (
     <div>
-      <PageNav count={count} jumpToPage={jumpToPage} page={page} />
-      <button onClick={() => prevPage(page, count)}>Prev</button>
-      <button onClick={() => nextPage(page, count)}>Next</button>
+      <CharacterPageNav
+        count={count}
+        jumpToPage={jumpToPage}
+        page={characterpage}
+      />
+      <button onClick={() => prevPage(characterpage, count)}>Prev</button>
+      <button onClick={() => nextPage(characterpage, count)}>Next</button>
       {characters.map((char, index) => (
         <CharCard key={index} char={char} />
       ))}
@@ -53,7 +57,7 @@ const mapStateToProps = state => ({
   characters: state.character.characters,
   loading: state.character.loading,
   count: state.character.pageCount,
-  page: state.character.page
+  characterpage: state.character.characterpage
 });
 export default connect(mapStateToProps, {
   getCharacters,

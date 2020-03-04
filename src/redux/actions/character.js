@@ -4,9 +4,9 @@ import {
   GET_CHARACTERS_START,
   GET_CHARACTERS_SUCCESS,
   CHARACTERS_ERROR,
-  PREV_PAGE,
-  NEXT_PAGE,
-  JUMP_TO_PAGE
+  PREV_PAGE_CHARACTER,
+  NEXT_PAGE_CHARACTER,
+  JUMP_TO_PAGE_CHARACTER
 } from "./types";
 
 export const getCharacters = page => dispatch => {
@@ -31,15 +31,17 @@ export const getCharacters = page => dispatch => {
   }
 };
 
-export const nextPage = (page, count) => dispatch => {
+export const nextPage = (characterpage, count) => dispatch => {
   console.log("working");
-  if (page < count) dispatch({ type: NEXT_PAGE, payload: page + 1 });
+  if (characterpage < count)
+    dispatch({ type: NEXT_PAGE_CHARACTER, payload: characterpage + 1 });
 };
 
-export const prevPage = (page, count) => dispatch => {
-  if (page > 1) dispatch({ type: PREV_PAGE, payload: page - 1 });
+export const prevPage = (characterpage, count) => dispatch => {
+  if (characterpage > 1)
+    dispatch({ type: PREV_PAGE_CHARACTER, payload: characterpage - 1 });
 };
 
 export const jumpToPage = newPage => dispatch => {
-  dispatch({ type: JUMP_TO_PAGE, payload: newPage });
+  dispatch({ type: JUMP_TO_PAGE_CHARACTER, payload: newPage });
 };

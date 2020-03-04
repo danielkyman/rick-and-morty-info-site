@@ -2,9 +2,9 @@ import {
   GET_EPISODES_START,
   GET_EPISODES_SUCCESS,
   EPISODES_ERROR,
-  PREV_PAGE,
-  NEXT_PAGE,
-  JUMP_TO_PAGE
+  PREV_PAGE_EPISODE,
+  NEXT_PAGE_EPISODE,
+  JUMP_TO_PAGE_EPISODE
 } from "../actions/types";
 
 const initialState = {
@@ -42,9 +42,9 @@ export default function(state = initialState, action) {
         loading: false
       };
 
-    case PREV_PAGE:
-    case NEXT_PAGE:
-    case JUMP_TO_PAGE: {
+    case PREV_PAGE_EPISODE:
+    case NEXT_PAGE_EPISODE:
+    case JUMP_TO_PAGE_EPISODE: {
       return {
         ...state,
         episodepage: payload

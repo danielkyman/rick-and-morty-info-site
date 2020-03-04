@@ -4,9 +4,9 @@ import {
   GET_EPISODES_START,
   GET_EPISODES_SUCCESS,
   EPISODES_ERROR,
-  PREV_PAGE,
-  NEXT_PAGE,
-  JUMP_TO_PAGE
+  PREV_PAGE_EPISODE,
+  NEXT_PAGE_EPISODE,
+  JUMP_TO_PAGE_EPISODE
 } from "./types";
 
 export const getEpisodes = page => dispatch => {
@@ -31,13 +31,14 @@ export const getEpisodes = page => dispatch => {
 
 export const nextPage = (episodepage, count) => dispatch => {
   if (episodepage < count)
-    dispatch({ type: NEXT_PAGE, payload: episodepage + 1 });
+    dispatch({ type: NEXT_PAGE_EPISODE, payload: episodepage + 1 });
 };
 
 export const prevPage = (episodepage, count) => dispatch => {
-  if (episodepage > 1) dispatch({ type: PREV_PAGE, payload: episodepage - 1 });
+  if (episodepage > 1)
+    dispatch({ type: PREV_PAGE_EPISODE, payload: episodepage - 1 });
 };
 
 export const jumpToPage = newPage => dispatch => {
-  dispatch({ type: JUMP_TO_PAGE, payload: newPage });
+  dispatch({ type: JUMP_TO_PAGE_EPISODE, payload: newPage });
 };

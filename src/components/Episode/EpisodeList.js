@@ -9,7 +9,7 @@ import {
   jumpToPage
 } from "../../redux/actions/episode";
 
-import PageNav from "../../components/Navigation/PageNav";
+import EpisodePageNav from "../../components/Navigation/EpisodePageNav";
 import EpisodeCard from "../../components/Episode/EpisodeCard";
 
 const EpisodeList = ({
@@ -33,7 +33,11 @@ const EpisodeList = ({
   console.log(episodepage);
   return (
     <div>
-      <PageNav count={count} page={episodepage} jumpToPage={jumpToPage} />
+      <EpisodePageNav
+        count={count}
+        page={episodepage}
+        jumpToPage={jumpToPage}
+      />
       <button onClick={() => prevPage(episodepage, count)}>Prev</button>
       <button onClick={() => nextPage(episodepage, count)}>Next</button>
       {episodes.map((episode, index) => (
