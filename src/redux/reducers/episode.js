@@ -9,7 +9,7 @@ import {
 
 const initialState = {
   episodes: [],
-  page: 1,
+  episodepage: 1,
   episode: null,
   pageCount: null,
   loading: true,
@@ -47,7 +47,7 @@ export default function(state = initialState, action) {
     case JUMP_TO_PAGE: {
       return {
         ...state,
-        page: payload
+        episodepage: payload
       };
     }
 

@@ -29,12 +29,13 @@ export const getEpisodes = page => dispatch => {
   }
 };
 
-export const nextPage = (page, count) => dispatch => {
-  if (page < count) dispatch({ type: NEXT_PAGE, payload: page + 1 });
+export const nextPage = (episodepage, count) => dispatch => {
+  if (episodepage < count)
+    dispatch({ type: NEXT_PAGE, payload: episodepage + 1 });
 };
 
-export const prevPage = (page, count) => dispatch => {
-  if (page > 1) dispatch({ type: PREV_PAGE, payload: page - 1 });
+export const prevPage = (episodepage, count) => dispatch => {
+  if (episodepage > 1) dispatch({ type: PREV_PAGE, payload: episodepage - 1 });
 };
 
 export const jumpToPage = newPage => dispatch => {

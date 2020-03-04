@@ -15,7 +15,7 @@ import EpisodeCard from "../../components/Episode/EpisodeCard";
 const EpisodeList = ({
   getEpisodes,
   episodes,
-  page,
+  episodepage,
   loading,
   count,
   prevPage,
@@ -23,18 +23,19 @@ const EpisodeList = ({
   jumpToPage
 }) => {
   useEffect(() => {
-    getEpisodes(page);
-  }, [page]);
+    getEpisodes(episodepage);
+  }, [episodepage]);
 
   if (loading) {
     return <h3>Loading Cards...</h3>;
   }
 
+  console.log(episodepage);
   return (
     <div>
-      <PageNav count={count} page={page} jumpToPage={jumpToPage} />
-      <button onClick={() => prevPage(page, count)}>Prev</button>
-      <button onClick={() => nextPage(page, count)}>Next</button>
+      <PageNav count={count} page={episodepage} jumpToPage={jumpToPage} />
+      <button onClick={() => prevPage(episodepage, count)}>Prev</button>
+      <button onClick={() => nextPage(episodepage, count)}>Next</button>
       {episodes.map((episode, index) => (
         <EpisodeCard key={index} episode={episode} />
       ))}
@@ -51,7 +52,7 @@ EpisodeList.propTypes = {
 
 const mapStateToProps = state => ({
   episodes: state.episode.episodes,
-  page: state.episode.page,
+  episodepage: state.episode.episodepage,
   count: state.episode.pageCount,
   loading: state.episode.loading
 });
