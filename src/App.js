@@ -14,7 +14,7 @@ import CharactersPage from "./pages/Character/CharactersPage";
 import LocationsPage from "./pages/Location/LocationsPage";
 import EpisodesPage from "./pages/Episode/EpisodesPage";
 import Random from "./pages/Randomizer/Random";
-import NavBar from "./components/Navbar/NavBar";
+import NavBar from "./components/Navigation/NavBar";
 
 function App() {
   return (

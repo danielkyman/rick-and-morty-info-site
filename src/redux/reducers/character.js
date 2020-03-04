@@ -1,11 +1,15 @@
 import {
   GET_CHARACTERS_START,
   GET_CHARACTERS_SUCCESS,
-  CHARACTERS_ERROR
+  CHARACTERS_ERROR,
+  NEXT_PAGE,
+  PREV_PAGE,
+  JUMP_TO_PAGE
 } from "../actions/types";
 
 const initialState = {
   characters: [],
+  page: 1,
   character: null,
   pageCount: null,
   loading: true,
@@ -36,6 +40,15 @@ export default function(state = initialState, action) {
         ...state,
         error: payload,
         loading: false
+      };
+    }
+
+    case PREV_PAGE:
+    case NEXT_PAGE:
+    case JUMP_TO_PAGE: {
+      return {
+        ...state,
+        page: payload
       };
     }
     default:
