@@ -4,3 +4,7 @@ export const CHARACTERS_ERROR = "CHARACTERS_ERROR";
 export const PREV_PAGE = "PREV_PAGE";
 export const NEXT_PAGE = "NEXT_PAGE";
 export const JUMP_TO_PAGE = "JUMP_TO_PAGE";
+
+export const GET_EPISODES_START = "GET_EPISODES_START";
+export const GET_EPISODES_SUCCESS = "GET_EPISODES_SUCCESS";
+export const EPISODES_ERROR = "EPISODES_ERROR";

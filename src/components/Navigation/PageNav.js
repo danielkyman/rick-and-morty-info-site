@@ -13,7 +13,7 @@ const PageNav = ({ count, jumpToPage, page }) => {
         <span
           key={index}
           onClick={() => jumpToPage(number)}
-          className={number === page && "active-page"}
+          className={number === page ? "active-page" : undefined}
         >
           {" "}
           {number}{" "}
