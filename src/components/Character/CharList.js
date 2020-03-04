@@ -9,6 +9,8 @@ import {
 } from "../../redux/actions/character";
 
 import PageNav from "../../components/Navigation/PageNav";
+import CharCard from "../../components/Character/CharCard";
+
 const CharList = ({
   getCharacters,
   loading,
@@ -43,7 +45,7 @@ const CharList = ({
       <button onClick={() => prevPage(page, count)}>Prev</button>
       <button onClick={() => nextPage(page, count)}>Next</button>
       {characters.map((char, index) => (
-        <h2 key={index}>{char.name}</h2>
+        <CharCard char={char} />
       ))}
     </div>
   );
