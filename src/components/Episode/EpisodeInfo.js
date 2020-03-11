@@ -7,9 +7,10 @@ const EpisodeCard = ({
 }) => {
   const [list, setList] = useState([]);
 
-  const characterList = characters.map(
-    character => character.split("character/")[1]
-  );
+  console.log(characters);
+
+  const characterList =
+    characters.map(character => character.split("character/")[1]) || null;
 
   const urlAppend = characterList.join(",");
 
@@ -22,7 +23,7 @@ const EpisodeCard = ({
   }, []);
 
   return (
-    <div>
+    <>
       <h2>{episode}</h2>
       <p>{name}</p>
       <p>Date Aired: {air_date}</p>
@@ -34,7 +35,7 @@ const EpisodeCard = ({
           ))}
         </p>
       </div>
-    </div>
+    </>
   );
 };
 

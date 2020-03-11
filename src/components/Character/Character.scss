@@ -1,0 +1,23 @@
+@import "../../sass/variables.scss";
+
+.page-container {
+  display: flex;
+  flex-flow: column wrap;
+  min-height: 100vh;
+  background: $primary-color;
+  .card-container {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 3%;
+    justify-content: center;
+    background: $primary-color;
+
+    h2 {
+      font-size: 1rem;
+    }
+    img {
+      max-width: 90%;
+      border-radius: 5px;
+    }
+  }
+}

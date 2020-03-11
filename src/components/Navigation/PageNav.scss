@@ -1,4 +1,59 @@
-.active-page {
-  color: white;
-  background: black;
+@import "../../sass/variables.scss";
+
+.pagination {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  background: $primary-color;
+  .numbers {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-flow: row;
+    margin-top: 50px;
+
+    .page-number {
+      width: 30px;
+      border: 1px solid grey;
+      border-width: 1px 0.5px;
+      border-radius: 1px;
+      font-size: 12px;
+      font-weight: bold;
+      text-align: center;
+      color: white;
+    }
+
+    .active {
+      background: $text-primary;
+      margin: 0 8px;
+      animation: active-btn 0.1s forwards;
+    }
+
+    @keyframes active-btn {
+      from {
+        transform: translateY(0) scale(1);
+      }
+      to {
+        transform: translateY(-3px) scale(1.2);
+      }
+    }
+  }
+  .next-prev {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    button {
+      margin: 5px;
+      background: $text-primary;
+      border: none;
+      border-radius: 2px;
+      color: white;
+      font-weight: bold;
+      letter-spacing: 0.1rem;
+
+      &:hover {
+        background: darken($text-primary, 5%);
+      }
+    }
+  }
 }

@@ -9,7 +9,6 @@ const NavBar = () => {
       <Link to="/episodes">Episodes</Link>
       <Link to="/locations">Locations</Link>
       <Link to="/characters">Characters</Link>
-      <Link to="Random">Random</Link>
     </div>
   );
 };

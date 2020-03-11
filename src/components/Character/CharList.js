@@ -8,8 +8,12 @@ import {
   jumpToPage
 } from "../../redux/actions/character";
 
+import "./Character.scss";
 import CharacterPageNav from "../../components/Navigation/CharacterPageNav";
-import CharCard from "../../components/Character/CharCard";
+import Card from "../../components/Card/Card";
+import CharInfo from "./CharInfo";
+
+import spinner from "../../components/images/spinner.gif";
 
 const CharList = ({
   getCharacters,
@@ -25,22 +29,29 @@ const CharList = ({
     getCharacters(characterpage);
   }, [characterpage]);
 
-  if (loading) {
-    return <h3>Loading Cards...</h3>;
-  }
-
   return (
     <div>
       <CharacterPageNav
         count={count}
+        characterpage={characterpage}
         jumpToPage={jumpToPage}
         page={characterpage}
+        prevPage={prevPage}
+        nextPage={nextPage}
       />
-      <button onClick={() => prevPage(characterpage, count)}>Prev</button>
-      <button onClick={() => nextPage(characterpage, count)}>Next</button>
-      {characters.map((char, index) => (
-        <CharCard key={index} char={char} />
-      ))}
+      {loading ? (
+        <div className="page-container"></div>
+      ) : (
+        <div className="page-container">
+          <div className="card-container">
+            {characters.map((char, index) => (
+              <Card>
+                <CharInfo key={index} char={char} />
+              </Card>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

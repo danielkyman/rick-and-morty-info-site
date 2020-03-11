@@ -1,3 +1,12 @@
+@import "../../sass/variables.scss";
+
+.card-container {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 3%;
+  justify-content: center;
+  background: $primary-color;
+}
 .small-img {
   width: 30px;
   height: auto;

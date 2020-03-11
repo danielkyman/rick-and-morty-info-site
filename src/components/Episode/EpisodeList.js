@@ -10,7 +10,8 @@ import {
 } from "../../redux/actions/episode";
 
 import EpisodePageNav from "../../components/Navigation/EpisodePageNav";
-import EpisodeCard from "../../components/Episode/EpisodeCard";
+import Card from "../../components/Card/Card";
+import EpisodeInfo from "./EpisodeInfo";
 
 const EpisodeList = ({
   getEpisodes,
@@ -40,9 +41,13 @@ const EpisodeList = ({
       />
       <button onClick={() => prevPage(episodepage, count)}>Prev</button>
       <button onClick={() => nextPage(episodepage, count)}>Next</button>
-      {episodes.map((episode, index) => (
-        <EpisodeCard key={index} episode={episode} />
-      ))}
+      <div className="card-container">
+        {episodes.map((episode, index) => (
+          <Card key={index} size="large">
+            <EpisodeInfo episode={episode} />
+          </Card>
+        ))}
+      </div>
     </div>
   );
 };

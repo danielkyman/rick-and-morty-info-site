@@ -35,11 +35,13 @@ export const nextPage = (characterpage, count) => dispatch => {
   console.log("working");
   if (characterpage < count)
     dispatch({ type: NEXT_PAGE_CHARACTER, payload: characterpage + 1 });
+  else dispatch({ type: NEXT_PAGE_CHARACTER, payload: 1 });
 };
 
 export const prevPage = (characterpage, count) => dispatch => {
   if (characterpage > 1)
     dispatch({ type: PREV_PAGE_CHARACTER, payload: characterpage - 1 });
+  else dispatch({ type: PREV_PAGE_CHARACTER, payload: count });
 };
 
 export const jumpToPage = newPage => dispatch => {
