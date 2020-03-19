@@ -14,6 +14,7 @@ import CharactersPage from "./pages/Character/CharactersPage";
 import LocationsPage from "./pages/Location/LocationsPage";
 import EpisodesPage from "./pages/Episode/EpisodesPage";
 import NavBar from "./components/Navigation/NavBar";
+import CharacterSingle from "./pages/Character/CharacterSingle";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route exact path="/characters" component={CharactersPage} />
           <Route exact path="/locations" component={LocationsPage} />
           <Route exact path="/episodes" component={EpisodesPage} />
+          <Route exact path="/characters/:id" component={CharacterSingle} />
         </Switch>
       </Router>
     </Provider>

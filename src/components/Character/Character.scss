@@ -5,19 +5,89 @@
   flex-flow: column wrap;
   min-height: 100vh;
   background: $primary-color;
-  .card-container {
-    display: flex;
-    flex-flow: row wrap;
-    padding: 3%;
-    justify-content: center;
-    background: $primary-color;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
 
-    h2 {
-      font-size: 1rem;
+//all cards page
+.card-container {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 10px;
+
+  .card {
+    margin-top: 0;
+  }
+  .card-header {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    transition: 0.5s;
+    border-radius: 5px;
+    .overlay {
+      position: absolute;
+      display: none; /* Hidden by default */
+      width: 100%; /* Full width (cover the whole page) */
+      height: 100%; /* Full height (cover the whole page) */
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      cursor: pointer;
+      transition-duration: 0.3s;
+
+      .overlay-text {
+        position: absolute;
+      }
+      a {
+        height: 100%;
+        width: 100%;
+        text-decoration: none;
+        text-align: center;
+      }
     }
     img {
-      max-width: 90%;
-      border-radius: 5px;
+      max-width: 100%;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      transition: 0.2s;
     }
+
+    &:hover > .overlay {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 500;
+      background: rgba(0, 0, 0, 0.2);
+      div {
+        color: $text-primary;
+        font-weight: bold;
+      }
+    }
+    &:hover > img {
+      filter: brightness(50%);
+    }
+  }
+}
+
+//single card page
+.single-char-card {
+  display: flex;
+  width: 100%;
+  height: 300px;
+  justify-content: space-around;
+  align-items: center;
+  .image {
+    width: 50%;
+    height: auto;
+  }
+
+  .main-info {
+    width: 500px;
+  }
+  .secondary-info {
+    width: 400px;
+    display: relative;
   }
 }

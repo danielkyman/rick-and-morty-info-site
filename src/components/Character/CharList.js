@@ -13,8 +13,6 @@ import CharacterPageNav from "../../components/Navigation/CharacterPageNav";
 import Card from "../../components/Card/Card";
 import CharInfo from "./CharInfo";
 
-import spinner from "../../components/images/spinner.gif";
-
 const CharList = ({
   getCharacters,
   loading,
@@ -38,6 +36,7 @@ const CharList = ({
         page={characterpage}
         prevPage={prevPage}
         nextPage={nextPage}
+        reversed={false}
       />
       {loading ? (
         <div className="page-container"></div>
@@ -52,6 +51,15 @@ const CharList = ({
           </div>
         </div>
       )}
+      <CharacterPageNav
+        count={count}
+        characterpage={characterpage}
+        jumpToPage={jumpToPage}
+        page={characterpage}
+        prevPage={prevPage}
+        nextPage={nextPage}
+        reversed={true}
+      />
     </div>
   );
 };

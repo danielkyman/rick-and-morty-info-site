@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./PageNav.scss";
 
 const CharacterPageNav = ({
@@ -7,7 +7,8 @@ const CharacterPageNav = ({
   page,
   prevPage,
   nextPage,
-  characterpage
+  characterpage,
+  reversed
 }) => {
   let countArr = [];
   for (let i = 1; i <= count; i++) {
@@ -16,7 +17,13 @@ const CharacterPageNav = ({
 
   return (
     <div className="pagination">
-      <div className="numbers">
+      {reversed ? (
+        <div className="next-prev">
+          <button onClick={() => prevPage(characterpage, count)}>Prev</button>
+          <button onClick={() => nextPage(characterpage, count)}>Next</button>
+        </div>
+      ) : null}
+      <div className={reversed ? `numbers numbers-reversed` : "numbers"}>
         {countArr.map((number, index) => (
           <span
             key={index}
@@ -28,10 +35,13 @@ const CharacterPageNav = ({
           </span>
         ))}
       </div>
-      <div className="next-prev">
-        <button onClick={() => prevPage(characterpage, count)}>Prev</button>
-        <button onClick={() => nextPage(characterpage, count)}>Next</button>
-      </div>
+
+      {!reversed ? (
+        <div className="next-prev">
+          <button onClick={() => prevPage(characterpage, count)}>Prev</button>
+          <button onClick={() => nextPage(characterpage, count)}>Next</button>
+        </div>
+      ) : null}
     </div>
   );
 };

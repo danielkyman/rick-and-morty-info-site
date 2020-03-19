@@ -4,13 +4,15 @@ import {
   CHARACTERS_ERROR,
   NEXT_PAGE_CHARACTER,
   PREV_PAGE_CHARACTER,
-  JUMP_TO_PAGE_CHARACTER
+  JUMP_TO_PAGE_CHARACTER,
+  GET_SINGLE_CHAR_START,
+  GET_SINGLE_CHAR_SUCCESS
 } from "../actions/types";
 
 const initialState = {
   characters: [],
   characterpage: 1,
-  character: null,
+  character: {},
   pageCount: null,
   loading: true,
   error: {}
@@ -21,6 +23,8 @@ export default function(state = initialState, action) {
 
   switch (type) {
     case GET_CHARACTERS_START:
+    case GET_SINGLE_CHAR_START:
+      console.log("starting");
       return {
         ...state,
         loading: true,
@@ -34,6 +38,13 @@ export default function(state = initialState, action) {
         characters: payload.results,
         pageCount: payload.info.pages,
         loading: false
+      };
+
+    case GET_SINGLE_CHAR_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        character: payload
       };
     case CHARACTERS_ERROR: {
       return {

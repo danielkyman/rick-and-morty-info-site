@@ -5,12 +5,13 @@
   flex-flow: column;
   width: 100%;
   background: $primary-color;
+
   .numbers {
     width: 100%;
     display: flex;
     justify-content: center;
     flex-flow: row;
-    margin-top: 50px;
+    margin-top: 75px;
 
     .page-number {
       width: 30px;
@@ -39,7 +40,7 @@
     }
   }
   .next-prev {
-    margin-top: 10px;
+    margin: 10px auto;
     display: flex;
     justify-content: center;
     button {
@@ -55,5 +56,10 @@
         background: darken($text-primary, 5%);
       }
     }
+  }
+
+  .numbers-reversed {
+    margin-top: 0;
+    margin-bottom: 75px;
   }
 }
